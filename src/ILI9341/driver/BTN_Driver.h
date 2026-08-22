@@ -1,0 +1,82 @@
+/*******************************************************************************************************************//**
+ * @file Button_Driver.h
+ * @brief Declares APIs for polling push buttons using the Renesas FSP IOPORT interface.
+ *
+ * This module provides debouncing, press/release detection, click detection, long-press detection, and key-repeat
+ * handling for multiple push buttons connected to GPIO input pins on a Renesas RA microcontroller.
+ **********************************************************************************************************************/
+
+#ifndef BUTTON_DRIVER_H
+#define BUTTON_DRIVER_H
+
+/***********************************************************************************************************************
+ * Includes
+ **********************************************************************************************************************/
+#include <stdbool.h>
+#include <stdint.h>
+#include "r_ioport.h"
+
+/***********************************************************************************************************************
+ * Macro definitions
+ **********************************************************************************************************************/
+
+/* Number of application buttons supported by the default button ID list. */
+#define BUTTON_COUNT    (5U)
+
+/***********************************************************************************************************************
+ * Typedef definitions
+ **********************************************************************************************************************/
+
+/** Button identifiers used by the application. */
+typedef enum e_button_id
+{
+    BUTTON_ID_UP = 0,
+    BUTTON_ID_DOWN,
+    BUTTON_ID_OK,
+    BUTTON_ID_BACK,
+    BUTTON_ID_HOME,
+    BUTTON_ID_MAX
+} button_id_t;
+
+/** Button events. Multiple events can be pending at the same time. */
+typedef enum e_button_event
+{
+    BUTTON_EVENT_NONE         = 0x00U,
+    BUTTON_EVENT_PRESSED      = 0x01U,
+    BUTTON_EVENT_RELEASED     = 0x02U,
+    BUTTON_EVENT_CLICKED      = 0x04U,
+    BUTTON_EVENT_LONG_PRESSED = 0x08U,
+    BUTTON_EVENT_REPEAT       = 0x10U
+} button_event_t;
+
+/** GPIO configuration for one button. */
+typedef struct st_button_pin_cfg
+{
+    bsp_io_port_pin_t pin;          ///< FSP/BSP pin identifier.
+    bsp_io_level_t    active_level; ///< GPIO level that represents the pressed state.
+} button_pin_cfg_t;
+
+/** Runtime timing configuration for the button driver. */
+typedef struct st_button_cfg
+{
+    button_pin_cfg_t const * p_button_pins;       ///< Array indexed by button_id_t.
+    uint32_t                 button_count;        ///< Number of entries in p_button_pins.
+    uint32_t                 debounce_time_ms;    ///< Debounce time for press/release transitions.
+    uint32_t                 long_press_time_ms;  ///< Time before BUTTON_EVENT_LONG_PRESSED is generated.
+    uint32_t                 repeat_start_time_ms;///< Time before the first BUTTON_EVENT_REPEAT is generated.
+    uint32_t                 repeat_period_ms;    ///< Period between repeat events while the button remains pressed.
+} button_cfg_t;
+
+/***********************************************************************************************************************
+ * Public function declarations
+ **********************************************************************************************************************/
+
+fsp_err_t Button_Open(button_cfg_t const * p_cfg);
+fsp_err_t Button_Close(void);
+fsp_err_t Button_Process(uint32_t elapsed_ms);
+fsp_err_t Button_IsPressed(button_id_t button_id, bool * p_pressed);
+fsp_err_t Button_EventGet(button_id_t button_id, button_event_t event, bool * p_detected);
+fsp_err_t Button_EventsGet(button_id_t button_id, uint32_t * p_events);
+fsp_err_t Button_EventsClear(button_id_t button_id);
+
+#endif /* BUTTON_DRIVER_H */
