@@ -10,18 +10,24 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/ipc/src/subdir.mk
+-include src/ip/softSPI/subdir.mk
+-include src/ip/relay/subdir.mk
+-include src/ip/ili9341/subdir.mk
+-include src/ip/cjm410_port/subdir.mk
+-include src/ip/cjm410/subdir.mk
+-include src/ip/button/subdir.mk
+-include src/hld/src/subdir.mk
 -include src/SEGGER_RTT/subdir.mk
--include src/ILI9341/driver/subdir.mk
--include src/ILI9341/aplication/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk
 -include ra/fsp/src/r_spi/subdir.mk
+-include ra/fsp/src/r_sci_uart/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
 -include ra/fsp/src/r_dtc/subdir.mk
 -include ra/fsp/src/bsp/mcu/ra6m5/subdir.mk
 -include ra/fsp/src/bsp/mcu/all/subdir.mk
 -include ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/subdir.mk
--include ra/board/ra6m5_ek/subdir.mk
 -include subdir.mk
 -include objects.mk
 

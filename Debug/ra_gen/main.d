@@ -52,9 +52,12 @@ ra_gen/main.o: ../ra_gen/main.c ../ra_gen/hal_data.h \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/bsp_api.h \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/r_ioport_cfg.h \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/instances/r_sci_uart.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_uart_api.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_transfer_api.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/r_sci_uart_cfg.h \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/instances/r_spi.h \
- D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_spi_api.h \
- D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_transfer_api.h
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_spi_api.h
 ../ra_gen/hal_data.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/bsp_api.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/fsp_common_api.h:
@@ -109,6 +112,9 @@ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_ioport_api.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/bsp_api.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/r_ioport_cfg.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/instances/r_sci_uart.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_uart_api.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_transfer_api.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/r_sci_uart_cfg.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/instances/r_spi.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_spi_api.h:
-D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_transfer_api.h:

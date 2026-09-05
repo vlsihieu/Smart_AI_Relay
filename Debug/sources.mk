@@ -53,16 +53,22 @@ MAP :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-ra/board/ra6m5_ek \
 ra/fsp/src/bsp/cmsis/Device/RENESAS/Source \
 ra/fsp/src/bsp/mcu/all \
 ra/fsp/src/bsp/mcu/ra6m5 \
 ra/fsp/src/r_dtc \
 ra/fsp/src/r_ioport \
+ra/fsp/src/r_sci_uart \
 ra/fsp/src/r_spi \
 ra_gen \
-src/ILI9341/aplication \
-src/ILI9341/driver \
 src/SEGGER_RTT \
 src \
+src/hld/src \
+src/ip/button \
+src/ip/cjm410 \
+src/ip/cjm410_port \
+src/ip/ili9341 \
+src/ip/relay \
+src/ip/softSPI \
+src/ipc/src \
 

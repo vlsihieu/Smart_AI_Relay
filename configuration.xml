@@ -213,10 +213,6 @@
       <description>Arm CMSIS Version 6 - Core (M)</description>
       <originalPack>Arm.CMSIS6.6.1.0+fsp.6.5.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="ra6m5_ek" variant="" vendor="Renesas" version="6.5.0">
-      <description>RA6M5-EK Board Support Files</description>
-      <originalPack>Renesas.RA_board_ra6m5_ek.6.5.0.pack</originalPack>
-    </component>
     <component apiversion="" class="BSP" condition="" group="ra6m5" subgroup="device" variant="R7FA6M5BH3CFC" vendor="Renesas" version="6.5.0">
       <description>Board support package for R7FA6M5BH3CFC</description>
       <originalPack>Renesas.RA_mcu_ra6m5.6.5.0.pack</originalPack>
@@ -240,6 +236,18 @@
     <component apiversion="" class="BSP" condition="" group="ra6m5" subgroup="linker" variant="" vendor="Renesas" version="6.5.0">
       <description>Board support package for RA6M5 - Linker</description>
       <originalPack>Renesas.RA_mcu_ra6m5.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra6m5" subgroup="events" variant="" vendor="Renesas" version="6.5.0">
+      <description>Board support package for RA6M5 - Events</description>
+      <originalPack>Renesas.RA_mcu_ra6m5.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="custom" variant="" vendor="Renesas" version="6.5.0">
+      <description>Custom Board Support Files</description>
+      <originalPack>Renesas.RA_board_custom.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_uart" variant="" vendor="Renesas" version="6.5.0">
+      <description>SCI UART</description>
+      <originalPack>Renesas.RA.6.5.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -280,10 +288,48 @@
       <property id="module.driver.spi.ssl_negation_delay" value="module.driver.spi.ssl_negation_delay.one"/>
       <property id="module.driver.spi.next_access_delay" value="module.driver.spi.next_access_delay.one"/>
     </module>
+    <module id="module.driver.uart_on_sci_uart.433074232">
+      <property id="module.driver.uart.name" value="g_uart_cjm410"/>
+      <property id="module.driver.uart.channel" value="6"/>
+      <property id="module.driver.uart.data_bits" value="module.driver.uart.data_bits.data_bits_8"/>
+      <property id="module.driver.uart.parity" value="module.driver.uart.parity.parity_off"/>
+      <property id="module.driver.uart.stop_bits" value="module.driver.uart.stop_bits.stop_bits_1"/>
+      <property id="module.driver.uart.baud" value="115200"/>
+      <property id="module.driver.uart.baudrate_modulation" value="module.driver.uart.baudrate_modulation.enabled"/>
+      <property id="module.driver.uart.baudrate_max_err" value="5"/>
+      <property id="module.driver.uart.flow_control" value="module.driver.uart.flow_control.rts"/>
+      <property id="module.driver.uart.pin_control_port" value="module.driver.uart.pin_control_port.PORT_DISABLE"/>
+      <property id="module.driver.uart.pin_control_pin" value="module.driver.uart.pin_control_pin.PIN_DISABLE"/>
+      <property id="module.driver.uart.clk_src" value="module.driver.uart.clk_src.int_clk"/>
+      <property id="module.driver.uart.rx_edge_start" value="module.driver.uart.rx_edge_start.falling_edge"/>
+      <property id="module.driver.uart.noisecancel_en" value="module.driver.uart.noisecancel_en.disabled"/>
+      <property id="module.driver.uart.rx_fifo_trigger" value="module.driver.uart.rx_fifo_trigger.fourteen"/>
+      <property id="module.driver.uart.irda.ire" value="module.driver.uart.irda.ire.disabled"/>
+      <property id="module.driver.uart.irda.irrxinv" value="module.driver.uart.irda.irrxinv.disabled"/>
+      <property id="module.driver.uart.irda.irtxinv" value="module.driver.uart.irda.irtxinv.disabled"/>
+      <property id="module.driver.uart.rs485.de_enable" value="module.driver.uart.rs485.de_enable.disabled"/>
+      <property id="module.driver.uart.rs485.de_polarity" value="module.driver.uart.rs485.de_polarity.high"/>
+      <property id="module.driver.uart.rs485.de_port_number" value="module.driver.uart.rs485.de_port_number.PORT_DISABLE"/>
+      <property id="module.driver.uart.rs485.de_pin_number" value="module.driver.uart.rs485.de_pin_number.PIN_DISABLE"/>
+      <property id="module.driver.uart.callback" value="cjm410_ra6m5_uart_callback"/>
+      <property id="module.driver.uart.rxi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.txi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
+    </module>
     <context id="_hal.870906591">
       <stack module="module.driver.ioport_on_ioport.964733647"/>
       <stack module="module.driver.spi_on_spi.1446496178"/>
+      <stack module="module.driver.uart_on_sci_uart.433074232"/>
     </context>
+    <config id="config.driver.sci_uart">
+      <property id="config.driver.sci_uart.param_checking_enable" value="config.driver.sci_uart.param_checking_enable.bsp"/>
+      <property id="config.driver.sci_uart.fifo_support" value="config.driver.sci_uart.fifo_support.enabled"/>
+      <property id="config.driver.sci_uart.dtc_support" value="config.driver.sci_uart.dtc_support.disabled"/>
+      <property id="config.driver.sci_uart.flow_control" value="config.driver.sci_uart.flow_control.disabled"/>
+      <property id="config.driver.sci_uart.rs485" value="config.driver.sci_uart.rs485.disabled"/>
+      <property id="config.driver.sci_uart.irda" value="config.driver.sci_uart.irda.disabled"/>
+    </config>
     <config id="config.driver.spi">
       <property id="config.driver.spi.param_checking_enable" value="config.driver.spi.param_checking_enable.bsp"/>
       <property id="config.driver.spi.dtc_enable" value="config.driver.spi.dtc_enable.enabled"/>
@@ -318,18 +364,20 @@
     <symbolicName propertyId="p105.symbolic_name" value="OSPI_SIO5"/>
     <symbolicName propertyId="p106.symbolic_name" value="OSPI_SIO0"/>
     <symbolicName propertyId="p107.symbolic_name" value="OSPI_SIO3"/>
-    <symbolicName propertyId="p111.symbolic_name" value="MIKROBUS_PWM_ARDUINO_D3_PWM"/>
-    <symbolicName propertyId="p112.symbolic_name" value="ARDUINO_D4"/>
+    <symbolicName propertyId="p109.symbolic_name" value="MOSIA_B_Pin"/>
+    <symbolicName propertyId="p110.symbolic_name" value="MISOA_B_Pin"/>
+    <symbolicName propertyId="p111.symbolic_name" value="RSPCKA_B_Pin"/>
+    <symbolicName propertyId="p112.symbolic_name" value="SSLA0_B_Pin"/>
     <symbolicName propertyId="p113.symbolic_name" value="S1_btn_Pin"/>
     <symbolicName propertyId="p114.symbolic_name" value="S2_btn_Pin"/>
     <symbolicName propertyId="p115.symbolic_name" value="S3_btn_Pin"/>
-    <symbolicName propertyId="p202.symbolic_name" value="MIKROBUS_MISO_ARDUINO_MISO_PMOD1_MISO"/>
-    <symbolicName propertyId="p203.symbolic_name" value="MIKROBUS_MOSI_ARDUINO_MOSI_PMOD1_MOSI"/>
+    <symbolicName propertyId="p202.symbolic_name" value="Y2_Pin"/>
+    <symbolicName propertyId="p203.symbolic_name" value="Y1_Pin"/>
     <symbolicName propertyId="p204.symbolic_name" value="MIKROBUS_SCK_ARDUINO_SCK_PMOD1_SCK"/>
     <symbolicName propertyId="p205.symbolic_name" value="MIKROBUS_SS_ARDUINO_SS"/>
     <symbolicName propertyId="p206.symbolic_name" value="PMOD1_SS"/>
     <symbolicName propertyId="p207.symbolic_name" value="ARDUINO_D8"/>
-    <symbolicName propertyId="p301.symbolic_name" value="PMOD1_SS2"/>
+    <symbolicName propertyId="p301.symbolic_name" value="T_IRQ_Pin"/>
     <symbolicName propertyId="p302.symbolic_name" value="PMOD1_SS3"/>
     <symbolicName propertyId="p303.symbolic_name" value="MIKROBUS_RESET_ARDUINO_RESET"/>
     <symbolicName propertyId="p305.symbolic_name" value="QSPI_CLK"/>
@@ -339,6 +387,8 @@
     <symbolicName propertyId="p309.symbolic_name" value="QSPI_IO2"/>
     <symbolicName propertyId="p310.symbolic_name" value="QSPI_IO3"/>
     <symbolicName propertyId="p311.symbolic_name" value="PMOD1_RST"/>
+    <symbolicName propertyId="p313.symbolic_name" value="Y3_Pin"/>
+    <symbolicName propertyId="p314.symbolic_name" value="Y4_Pin"/>
     <symbolicName propertyId="p400.symbolic_name" value="PMOD2_INT"/>
     <symbolicName propertyId="p401.symbolic_name" value="ETH_MDC"/>
     <symbolicName propertyId="p402.symbolic_name" value="ETH_MDIO"/>
@@ -357,8 +407,8 @@
     <symbolicName propertyId="p415.symbolic_name" value="GROVE1_SCL_QWIIC_SCL"/>
     <symbolicName propertyId="p500.symbolic_name" value="USBFS_VBUS_EN"/>
     <symbolicName propertyId="p501.symbolic_name" value="USBFS_OVERCURA"/>
-    <symbolicName propertyId="p505.symbolic_name" value="GROVE2_SCL"/>
-    <symbolicName propertyId="p506.symbolic_name" value="GROVE2_SDA"/>
+    <symbolicName propertyId="p505.symbolic_name" value="WIFI_RX_Pin"/>
+    <symbolicName propertyId="p506.symbolic_name" value="WIFI_TX_Pin"/>
     <symbolicName propertyId="p511.symbolic_name" value="MIKROBUS_SDA_ARDUINO_SDA"/>
     <symbolicName propertyId="p512.symbolic_name" value="MIKROBUS_SCL_ARDUINO_SCL"/>
     <symbolicName propertyId="p600.symbolic_name" value="OSPI_SIO4"/>
@@ -381,7 +431,10 @@
     <symbolicName propertyId="p707.symbolic_name" value="USBHS_OVERCURA"/>
     <symbolicName propertyId="p708.symbolic_name" value="PMOD2_SS3"/>
     <symbolicName propertyId="p800.symbolic_name" value="S7_btn_Pin"/>
-    <symbolicName propertyId="p905.symbolic_name" value="PMOD1_INT"/>
+    <symbolicName propertyId="p905.symbolic_name" value="Y8_Pin"/>
+    <symbolicName propertyId="p906.symbolic_name" value="Y7_Pin"/>
+    <symbolicName propertyId="p907.symbolic_name" value="Y6_Pin"/>
+    <symbolicName propertyId="p908.symbolic_name" value="Y5_Pin"/>
     <symbolicName propertyId="pb00.symbolic_name" value="USBHS_VBUS_EN"/>
     <symbolicName propertyId="pb01.symbolic_name" value="USBHS_VBUS"/>
     <pincfg active="true" name="RA6M5 EK" selected="true" symbol="g_bsp_pin_cfg">
@@ -398,15 +451,9 @@
       <configSetting altId="debug0.mode.swd" configurationId="debug0.mode"/>
       <configSetting altId="debug0.swclk.p300" configurationId="debug0.swclk"/>
       <configSetting altId="debug0.swdio.p108" configurationId="debug0.swdio"/>
-      <configSetting altId="gpt3.gtioca.p111" configurationId="gpt3.gtioca"/>
-      <configSetting altId="gpt3.mode.gtiocaorgtiocb.free" configurationId="gpt3.mode"/>
-      <configSetting altId="iic1.mode.enabled.a" configurationId="iic1.mode"/>
-      <configSetting altId="iic1.scl.p512" configurationId="iic1.scl"/>
-      <configSetting altId="iic1.sda.p511" configurationId="iic1.sda"/>
-      <configSetting altId="iic2.mode.enabled.free" configurationId="iic2.mode"/>
+      <configSetting altId="iic0.pairing.free" configurationId="iic0.pairing"/>
+      <configSetting altId="iic1.pairing.free" configurationId="iic1.pairing"/>
       <configSetting altId="iic2.pairing.free" configurationId="iic2.pairing"/>
-      <configSetting altId="iic2.scl.p415" configurationId="iic2.scl"/>
-      <configSetting altId="iic2.sda.p414" configurationId="iic2.sda"/>
       <configSetting altId="ospi0.mode.custom.free" configurationId="ospi0.mode"/>
       <configSetting altId="ospi0.omcs1.p602" configurationId="ospi0.omcs1"/>
       <configSetting altId="ospi0.omdqs.p104" configurationId="ospi0.omdqs"/>
@@ -470,18 +517,29 @@
       <configSetting altId="p107.gpio_mode.gpio_mode_peripheral" configurationId="p107.gpio_mode"/>
       <configSetting altId="p108.debug0.swdio" configurationId="p108"/>
       <configSetting altId="p108.gpio_mode.gpio_mode_peripheral" configurationId="p108.gpio_mode"/>
-      <configSetting altId="p111.gpt3.gtioca" configurationId="p111"/>
+      <configSetting altId="p109.output.high" configurationId="p109"/>
+      <configSetting altId="p109.gpio_speed.gpio_speed_high" configurationId="p109.gpio_drivecapacity"/>
+      <configSetting altId="p109.gpio_mode.gpio_mode_out.high" configurationId="p109.gpio_mode"/>
+      <configSetting altId="p110.output.low" configurationId="p110"/>
+      <configSetting altId="p110.gpio_mode.gpio_mode_out.low" configurationId="p110.gpio_mode"/>
+      <configSetting altId="p111.output.high" configurationId="p111"/>
       <configSetting altId="p111.gpio_speed.gpio_speed_high" configurationId="p111.gpio_drivecapacity"/>
-      <configSetting altId="p111.gpio_mode.gpio_mode_peripheral" configurationId="p111.gpio_mode"/>
-      <configSetting altId="p112.output.low" configurationId="p112"/>
+      <configSetting altId="p111.gpio_mode.gpio_mode_out.high" configurationId="p111.gpio_mode"/>
+      <configSetting altId="p112.output.high" configurationId="p112"/>
       <configSetting altId="p112.gpio_speed.gpio_speed_high" configurationId="p112.gpio_drivecapacity"/>
-      <configSetting altId="p112.gpio_mode.gpio_mode_out.low" configurationId="p112.gpio_mode"/>
+      <configSetting altId="p112.gpio_mode.gpio_mode_out.high" configurationId="p112.gpio_mode"/>
       <configSetting altId="p113.input" configurationId="p113"/>
       <configSetting altId="p113.gpio_mode.gpio_mode_in" configurationId="p113.gpio_mode"/>
       <configSetting altId="p114.input" configurationId="p114"/>
       <configSetting altId="p114.gpio_mode.gpio_mode_in" configurationId="p114.gpio_mode"/>
       <configSetting altId="p115.input" configurationId="p115"/>
       <configSetting altId="p115.gpio_mode.gpio_mode_in" configurationId="p115.gpio_mode"/>
+      <configSetting altId="p202.output.low" configurationId="p202"/>
+      <configSetting altId="p202.gpio_speed.gpio_speed_high" configurationId="p202.gpio_drivecapacity"/>
+      <configSetting altId="p202.gpio_mode.gpio_mode_out.low" configurationId="p202.gpio_mode"/>
+      <configSetting altId="p203.output.low" configurationId="p203"/>
+      <configSetting altId="p203.gpio_speed.gpio_speed_high" configurationId="p203.gpio_drivecapacity"/>
+      <configSetting altId="p203.gpio_mode.gpio_mode_out.low" configurationId="p203.gpio_mode"/>
       <configSetting altId="p207.output.low" configurationId="p207"/>
       <configSetting altId="p207.gpio_speed.gpio_speed_high" configurationId="p207.gpio_drivecapacity"/>
       <configSetting altId="p207.gpio_mode.gpio_mode_out.low" configurationId="p207.gpio_mode"/>
@@ -491,6 +549,8 @@
       <configSetting altId="p213.gpio_mode.gpio_mode_peripheral" configurationId="p213.gpio_mode"/>
       <configSetting altId="p300.debug0.swclk" configurationId="p300"/>
       <configSetting altId="p300.gpio_mode.gpio_mode_peripheral" configurationId="p300.gpio_mode"/>
+      <configSetting altId="p301.input" configurationId="p301"/>
+      <configSetting altId="p301.gpio_mode.gpio_mode_in" configurationId="p301.gpio_mode"/>
       <configSetting altId="p303.output.low" configurationId="p303"/>
       <configSetting altId="p303.gpio_speed.gpio_speed_high" configurationId="p303.gpio_drivecapacity"/>
       <configSetting altId="p303.gpio_mode.gpio_mode_out.low" configurationId="p303.gpio_mode"/>
@@ -515,6 +575,12 @@
       <configSetting altId="p311.output.low" configurationId="p311"/>
       <configSetting altId="p311.gpio_speed.gpio_speed_high" configurationId="p311.gpio_drivecapacity"/>
       <configSetting altId="p311.gpio_mode.gpio_mode_out.low" configurationId="p311.gpio_mode"/>
+      <configSetting altId="p313.output.low" configurationId="p313"/>
+      <configSetting altId="p313.gpio_speed.gpio_speed_high" configurationId="p313.gpio_drivecapacity"/>
+      <configSetting altId="p313.gpio_mode.gpio_mode_out.low" configurationId="p313.gpio_mode"/>
+      <configSetting altId="p314.output.low" configurationId="p314"/>
+      <configSetting altId="p314.gpio_speed.gpio_speed_high" configurationId="p314.gpio_drivecapacity"/>
+      <configSetting altId="p314.gpio_mode.gpio_mode_out.low" configurationId="p314.gpio_mode"/>
       <configSetting altId="p400.input" configurationId="p400"/>
       <configSetting altId="p400.gpio_irq.gpio_irq_enabled" configurationId="p400.gpio_irq"/>
       <configSetting altId="p400.gpio_mode.gpio_mode_in" configurationId="p400.gpio_mode"/>
@@ -547,32 +613,12 @@
       <configSetting altId="p412.spi1.rspck" configurationId="p412"/>
       <configSetting altId="p412.gpio_speed.gpio_speed_high" configurationId="p412.gpio_drivecapacity"/>
       <configSetting altId="p412.gpio_mode.gpio_mode_peripheral" configurationId="p412.gpio_mode"/>
-      <configSetting altId="p414.iic2.sda" configurationId="p414"/>
-      <configSetting altId="p414.gpio_speed.gpio_speed_high" configurationId="p414.gpio_drivecapacity"/>
-      <configSetting altId="p414.gpio_mode.gpio_mode_peripheral" configurationId="p414.gpio_mode"/>
-      <configSetting altId="p415.iic2.scl" configurationId="p415"/>
-      <configSetting altId="p415.gpio_speed.gpio_speed_high" configurationId="p415.gpio_drivecapacity"/>
-      <configSetting altId="p415.gpio_mode.gpio_mode_peripheral" configurationId="p415.gpio_mode"/>
       <configSetting altId="p500.usbfs0.vbusen" configurationId="p500"/>
       <configSetting altId="p500.gpio_speed.gpio_speed_high" configurationId="p500.gpio_drivecapacity"/>
       <configSetting altId="p500.gpio_mode.gpio_mode_peripheral" configurationId="p500.gpio_mode"/>
       <configSetting altId="p501.usbfs0.ovrcura" configurationId="p501"/>
       <configSetting altId="p501.gpio_speed.gpio_speed_high" configurationId="p501.gpio_drivecapacity"/>
       <configSetting altId="p501.gpio_mode.gpio_mode_peripheral" configurationId="p501.gpio_mode"/>
-      <configSetting altId="p505.sci6.scl" configurationId="p505"/>
-      <configSetting altId="p505.gpio_speed.gpio_speed_high" configurationId="p505.gpio_drivecapacity"/>
-      <configSetting altId="p505.gpio_mode.gpio_mode_peripheral" configurationId="p505.gpio_mode"/>
-      <configSetting altId="p505.gpio_otype.gpio_otype_n_ch_od" configurationId="p505.gpio_otype"/>
-      <configSetting altId="p506.sci6.sda" configurationId="p506"/>
-      <configSetting altId="p506.gpio_speed.gpio_speed_high" configurationId="p506.gpio_drivecapacity"/>
-      <configSetting altId="p506.gpio_mode.gpio_mode_peripheral" configurationId="p506.gpio_mode"/>
-      <configSetting altId="p506.gpio_otype.gpio_otype_n_ch_od" configurationId="p506.gpio_otype"/>
-      <configSetting altId="p511.iic1.sda" configurationId="p511"/>
-      <configSetting altId="p511.gpio_speed.gpio_speed_high" configurationId="p511.gpio_drivecapacity"/>
-      <configSetting altId="p511.gpio_mode.gpio_mode_peripheral" configurationId="p511.gpio_mode"/>
-      <configSetting altId="p512.iic1.scl" configurationId="p512"/>
-      <configSetting altId="p512.gpio_speed.gpio_speed_high" configurationId="p512.gpio_drivecapacity"/>
-      <configSetting altId="p512.gpio_mode.gpio_mode_peripheral" configurationId="p512.gpio_mode"/>
       <configSetting altId="p600.ospi0.omsio4" configurationId="p600"/>
       <configSetting altId="p600.gpio_speed.gpio_speed_highspeedhigh" configurationId="p600.gpio_drivecapacity"/>
       <configSetting altId="p600.gpio_mode.gpio_mode_peripheral" configurationId="p600.gpio_mode"/>
@@ -590,10 +636,6 @@
       <configSetting altId="p610.gpio_mode.gpio_mode_in" configurationId="p610.gpio_mode"/>
       <configSetting altId="p611.input" configurationId="p611"/>
       <configSetting altId="p611.gpio_mode.gpio_mode_in" configurationId="p611.gpio_mode"/>
-      <configSetting altId="p613.sci7.txd" configurationId="p613"/>
-      <configSetting altId="p613.gpio_mode.gpio_mode_peripheral" configurationId="p613.gpio_mode"/>
-      <configSetting altId="p614.sci7.rxd" configurationId="p614"/>
-      <configSetting altId="p614.gpio_mode.gpio_mode_peripheral" configurationId="p614.gpio_mode"/>
       <configSetting altId="p615.output.low" configurationId="p615"/>
       <configSetting altId="p615.gpio_mode.gpio_mode_out.low" configurationId="p615.gpio_mode"/>
       <configSetting altId="p700.spi0.miso" configurationId="p700"/>
@@ -615,10 +657,18 @@
       <configSetting altId="p707.gpio_mode.gpio_mode_peripheral" configurationId="p707.gpio_mode"/>
       <configSetting altId="p800.input" configurationId="p800"/>
       <configSetting altId="p800.gpio_mode.gpio_mode_in" configurationId="p800.gpio_mode"/>
-      <configSetting altId="p905.input" configurationId="p905"/>
-      <configSetting altId="p905.gpio_irq.gpio_irq_enabled" configurationId="p905.gpio_irq"/>
-      <configSetting altId="p905.gpio_mode.gpio_mode_in" configurationId="p905.gpio_mode"/>
-      <configSetting altId="p905.gpio_pupd.gpio_pupd_ip_up" configurationId="p905.gpio_pupd"/>
+      <configSetting altId="p905.output.low" configurationId="p905"/>
+      <configSetting altId="p905.gpio_speed.gpio_speed_high" configurationId="p905.gpio_drivecapacity"/>
+      <configSetting altId="p905.gpio_mode.gpio_mode_out.low" configurationId="p905.gpio_mode"/>
+      <configSetting altId="p906.output.low" configurationId="p906"/>
+      <configSetting altId="p906.gpio_speed.gpio_speed_high" configurationId="p906.gpio_drivecapacity"/>
+      <configSetting altId="p906.gpio_mode.gpio_mode_out.low" configurationId="p906.gpio_mode"/>
+      <configSetting altId="p907.output.low" configurationId="p907"/>
+      <configSetting altId="p907.gpio_speed.gpio_speed_high" configurationId="p907.gpio_drivecapacity"/>
+      <configSetting altId="p907.gpio_mode.gpio_mode_out.low" configurationId="p907.gpio_mode"/>
+      <configSetting altId="p908.output.low" configurationId="p908"/>
+      <configSetting altId="p908.gpio_speed.gpio_speed_high" configurationId="p908.gpio_drivecapacity"/>
+      <configSetting altId="p908.gpio_mode.gpio_mode_out.low" configurationId="p908.gpio_mode"/>
       <configSetting altId="pb00.usbhs0.vbusen" configurationId="pb00"/>
       <configSetting altId="pb00.gpio_speed.gpio_speed_high" configurationId="pb00.gpio_drivecapacity"/>
       <configSetting altId="pb00.gpio_mode.gpio_mode_peripheral" configurationId="pb00.gpio_mode"/>
@@ -633,12 +683,7 @@
       <configSetting altId="qspi0.qio3.p310" configurationId="qspi0.qio3"/>
       <configSetting altId="qspi0.qspclk.p305" configurationId="qspi0.qspclk"/>
       <configSetting altId="qspi0.qssl.p306" configurationId="qspi0.qssl"/>
-      <configSetting altId="sci6.mode.iic.free" configurationId="sci6.mode"/>
-      <configSetting altId="sci6.scl.p505" configurationId="sci6.scl"/>
-      <configSetting altId="sci6.sda.p506" configurationId="sci6.sda"/>
-      <configSetting altId="sci7.mode.asynchronous.free" configurationId="sci7.mode"/>
-      <configSetting altId="sci7.rxd.p614" configurationId="sci7.rxd"/>
-      <configSetting altId="sci7.txd.p613" configurationId="sci7.txd"/>
+      <configSetting altId="sci0.mode.custom.free" configurationId="sci0.mode"/>
       <configSetting altId="spi0.miso.p700" configurationId="spi0.miso"/>
       <configSetting altId="spi0.mode.custom.free" configurationId="spi0.mode"/>
       <configSetting altId="spi0.mosi.p701" configurationId="spi0.mosi"/>
@@ -649,6 +694,8 @@
       <configSetting altId="spi1.mosi.p411" configurationId="spi1.mosi"/>
       <configSetting altId="spi1.pairing.free" configurationId="spi1.pairing"/>
       <configSetting altId="spi1.rspck.p412" configurationId="spi1.rspck"/>
+      <configSetting altId="ssi0.pairing.free" configurationId="ssi0.pairing"/>
+      <configSetting altId="ssi_common0.pairing.free" configurationId="ssi_common0.pairing"/>
       <configSetting altId="usbfs0.mode.custom" configurationId="usbfs0.mode"/>
       <configSetting altId="usbfs0.ovrcura.p501" configurationId="usbfs0.ovrcura"/>
       <configSetting altId="usbfs0.vbus.p407" configurationId="usbfs0.vbus"/>

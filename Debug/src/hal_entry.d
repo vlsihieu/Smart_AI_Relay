@@ -53,11 +53,24 @@ src/hal_entry.o: ../src/hal_entry.c \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/bsp_api.h \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/r_ioport_cfg.h \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/instances/r_sci_uart.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_uart_api.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_transfer_api.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/r_sci_uart_cfg.h \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/instances/r_spi.h \
  D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_spi_api.h \
- D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_transfer_api.h \
- D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ILI9341/driver/ILI9341_Driver.h \
- D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ILI9341/aplication/Ui_Home_ep.h
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ip/ili9341/ILI9341_Driver.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ipc/inc/Ui_Home_ep.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ipc/inc/BTN_ep.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ip/button/BTN_Driver.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/hld/inc/App.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ipc/inc/Ui_Relay_ep.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/hld/inc/App1.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/hld/inc/App.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ipc/inc/Ui_QR_ep.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/hld/inc/wifi.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ip/cjm410/cjm410.h \
+ D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ip/cjm410_port/cjm410_ra6m5_port.h
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_gen/hal_data.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/bsp_api.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/fsp_common_api.h:
@@ -112,8 +125,21 @@ D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_ioport_api.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/bsp_api.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/r_ioport_cfg.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/instances/r_sci_uart.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_uart_api.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_transfer_api.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/ra_cfg/fsp_cfg/r_sci_uart_cfg.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/instances/r_spi.h:
 D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_spi_api.h:
-D:/workspace/spi_ek_ra6m5_ep/e2studio/ra/fsp/inc/api/r_transfer_api.h:
-D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ILI9341/driver/ILI9341_Driver.h:
-D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ILI9341/aplication/Ui_Home_ep.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ip/ili9341/ILI9341_Driver.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ipc/inc/Ui_Home_ep.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ipc/inc/BTN_ep.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ip/button/BTN_Driver.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/hld/inc/App.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ipc/inc/Ui_Relay_ep.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/hld/inc/App1.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/hld/inc/App.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ipc/inc/Ui_QR_ep.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/hld/inc/wifi.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ip/cjm410/cjm410.h:
+D:/workspace/spi_ek_ra6m5_ep/e2studio/src/ip/cjm410_port/cjm410_ra6m5_port.h:

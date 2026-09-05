@@ -4,8 +4,21 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
+#include "r_sci_uart.h"
+#include "r_uart_api.h"
 #include "r_spi.h"
 FSP_HEADER
+/** UART on SCI Instance. */
+extern const uart_instance_t g_uart_cjm410;
+
+/** Access the UART instance using these structures when calling API functions directly (::p_api is not used). */
+extern sci_uart_instance_ctrl_t g_uart_cjm410_ctrl;
+extern const uart_cfg_t g_uart_cjm410_cfg;
+extern const sci_uart_extended_cfg_t g_uart_cjm410_cfg_extend;
+
+#ifndef cjm410_ra6m5_uart_callback
+void cjm410_ra6m5_uart_callback(uart_callback_args_t *p_args);
+#endif
 /** SPI on SPI Instance. */
 extern const spi_instance_t g_spi_master;
 
