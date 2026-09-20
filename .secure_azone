@@ -104,6 +104,10 @@
         </peripheral>
         <peripheral name="SPI0.CM33" group="SPI" security="s"/>
         <peripheral name="SCI6.CM33" group="SCI" security="s"/>
+<<<<<<< HEAD
+=======
+        <peripheral name="SCI7.CM33" group="SCI" security="s"/>
+>>>>>>> d33d55c (update code)
         <peripheral name="ICU.CM33">
             <slot name="IRQ0.CM33" secure="true"/>
             <slot name="IRQ1.CM33" secure="true"/>
@@ -113,6 +117,13 @@
             <slot name="IRQ5.CM33" secure="true"/>
             <slot name="IRQ6.CM33" secure="true"/>
             <slot name="IRQ7.CM33" secure="true"/>
+<<<<<<< HEAD
+=======
+            <slot name="IRQ8.CM33" secure="true"/>
+            <slot name="IRQ9.CM33" secure="true"/>
+            <slot name="IRQ10.CM33" secure="true"/>
+            <slot name="IRQ11.CM33" secure="true"/>
+>>>>>>> d33d55c (update code)
         </peripheral>
     </partition>
 </azone>

@@ -251,8 +251,13 @@ FSP Configuration
       P610 101 GPIO S5_btn_Pin - - "Input mode" - None "AGT4: AGTO4; BUS_ASYNCH0: CS0; CAN1: CRX1; GPT5: GTIOC5B; OSPI0: OMCS0; SCI7: CTS7" - IO - - 
       P611 102 GPIO S6_btn_Pin - - "Input mode" - None "AGT3: AGTO3; CAC0: CACREF; CGC0: CLKOUT; SCI7: CTSRTS7" - IO - - 
       P612 103 - - - - Disabled - - "AGT2: AGTO2; BUS_ASYNCH0: D08; SCI7: SCK7" - None - - 
+<<<<<<< HEAD
       P613 104 - MIKROBUS_TX_ARDUINO_TX - - Disabled - - "AGT1: AGTO1; BUS_ASYNCH0: D09; SCI7: SDA7; SCI7: TXD7" - None - - 
       P614 105 - MIKROBUS_RX_ARDUINO_RX - - Disabled - - "AGT0: AGTO0; BUS_ASYNCH0: D10; SCI7: RXD7; SCI7: SCL7" - None - - 
+=======
+      P613 104 SCI7_TXD7 AI_MODULE_TXD2_Pin Low - "Peripheral mode" CMOS None "AGT1: AGTO1; BUS_ASYNCH0: D09; SCI7: SDA7; SCI7: TXD7" - IO - - 
+      P614 105 SCI7_RXD7 AI_MODULE_RXD2_Pin Low - "Peripheral mode" CMOS None "AGT0: AGTO0; BUS_ASYNCH0: D10; SCI7: RXD7; SCI7: SCL7" - IO - - 
+>>>>>>> d33d55c (update code)
       P615 106 GPIO OSPI_RST Low None "Output mode (Initial Low)" CMOS - "ICU0: IRQ07; USB_FS0: USB_VBUSEN" - IO - - 
       P700 8 SPI0_MISOA MISOA_C_Pin Low - "Peripheral mode" CMOS None "AGT4: AGTO4; ETHERC_MII0: ET0_ETXD1; ETHERC_RMII0: RMII_TXD0; GPT5: GTIOC5A; SPI0: MISOA" - IO - - 
       P701 9 SPI0_MOSIA MOSIA_C_Pin Low - "Peripheral mode" CMOS None "AGT3: AGTO3; ETHERC_MII0: ET0_ETXD0; ETHERC_RMII0: REF50CK; GPT5: GTIOC5B; SPI0: MOSIA" - IO - - 
@@ -428,8 +433,13 @@ FSP Configuration
       P610 101 - S5_btn_Pin - - Disabled - None "AGT4: AGTO4; BUS_ASYNCH0: CS0; CAN1: CRX1; GPT5: GTIOC5B; OSPI0: OMCS0; SCI7: CTS7" - IO - - 
       P611 102 - S6_btn_Pin - - Disabled - None "AGT3: AGTO3; CAC0: CACREF; CGC0: CLKOUT; SCI7: CTSRTS7" - IO - - 
       P612 103 - - - - Disabled - - "AGT2: AGTO2; BUS_ASYNCH0: D08; SCI7: SCK7" - None - - 
+<<<<<<< HEAD
       P613 104 - MIKROBUS_TX_ARDUINO_TX - - Disabled - - "AGT1: AGTO1; BUS_ASYNCH0: D09; SCI7: SDA7; SCI7: TXD7" - None - - 
       P614 105 - MIKROBUS_RX_ARDUINO_RX - - Disabled - - "AGT0: AGTO0; BUS_ASYNCH0: D10; SCI7: RXD7; SCI7: SCL7" - None - - 
+=======
+      P613 104 - AI_MODULE_TXD2_Pin Low - Disabled CMOS None "AGT1: AGTO1; BUS_ASYNCH0: D09; SCI7: SDA7; SCI7: TXD7" - IO - - 
+      P614 105 - AI_MODULE_RXD2_Pin Low - Disabled CMOS None "AGT0: AGTO0; BUS_ASYNCH0: D10; SCI7: RXD7; SCI7: SCL7" - IO - - 
+>>>>>>> d33d55c (update code)
       P615 106 - OSPI_RST Low None Disabled CMOS - "ICU0: IRQ07; USB_FS0: USB_VBUSEN" - IO - - 
       P700 8 - MISOA_C_Pin Low - Disabled CMOS None "AGT4: AGTO4; ETHERC_MII0: ET0_ETXD1; ETHERC_RMII0: RMII_TXD0; GPT5: GTIOC5A; SPI0: MISOA" - IO - - 
       P701 9 - MOSIA_C_Pin Low - Disabled CMOS None "AGT3: AGTO3; ETHERC_MII0: ET0_ETXD0; ETHERC_RMII0: REF50CK; GPT5: GTIOC5B; SPI0: MOSIA" - IO - - 
@@ -520,7 +530,11 @@ FSP Configuration
     
   Module "UART (r_sci_uart)"
     Parameter Checking: Default (BSP)
+<<<<<<< HEAD
     FIFO Support: Enable
+=======
+    FIFO Support: Disable
+>>>>>>> d33d55c (update code)
     DTC Support: Disable
     Flow Control Support: Disable
     RS-485 Support: Disable
@@ -590,3 +604,35 @@ FSP Configuration
       Interrupts: Transmit End Interrupt Priority: Priority 12
       Interrupts: Error Interrupt Priority: Priority 12
       
+<<<<<<< HEAD
+=======
+    Instance "g_uart_husky UART (r_sci_uart)"
+      General: Name: g_uart_husky
+      General: Channel: 7
+      General: Data Bits: 8bits
+      General: Parity: None
+      General: Stop Bits: 1bit
+      Baud: Baud Rate: 9600
+      Baud: Baud Rate Modulation: Enabled
+      Baud: Max Error (%): 5
+      Flow Control: CTS/RTS Selection: Hardware RTS
+      Flow Control: Software RTS Port: Disabled
+      Flow Control: Software RTS Pin: Disabled
+      Extra: Clock Source: Internal Clock
+      Extra: Start bit detection: Falling Edge
+      Extra: Noise Filter: Disable
+      Extra: Receive FIFO Trigger Level: Max
+      Extra: IrDA: Enable: Disabled
+      Extra: IrDA: RXD Polarity Switching: Normal
+      Extra: IrDA: TXD Polarity Switching: Normal
+      Extra: RS-485: DE Pin: Disable
+      Extra: RS-485: DE Pin Polarity: Active High
+      Extra: RS-485: DE Port Number: Disabled
+      Extra: RS-485: DE Pin Number: Disabled
+      Interrupts: Callback: NULL
+      Interrupts: Receive Interrupt Priority: Priority 12
+      Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
+      Interrupts: Transmit End Interrupt Priority: Priority 12
+      Interrupts: Error Interrupt Priority: Priority 12
+      
+>>>>>>> d33d55c (update code)
